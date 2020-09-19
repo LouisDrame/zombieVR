@@ -16,6 +16,8 @@ public class MobSpawner : MonoBehaviour
 
     private ZombieAI ai;
 
+    private bool hasEveryoneSpawned = false; // Not used now, will be used when enemies will not spawn at the same time
+
     void Start()
     {
         remainingEntities = new List<GameObject>();
@@ -26,16 +28,20 @@ public class MobSpawner : MonoBehaviour
     {
         if (remainingEntities.Count == 0) { // WHen there's no more enemies to kill spawn another wave of zombies
             currentWaveCount++;
-            SpawnZombies(currentWaveCount);
+            StartCoroutine(SpawnZombies(currentWaveCount));
         }
     }
 
-    void SpawnZombies(int currentWave) {
-        for(int i = 0; i < spawnPoints.Length; i++) {
+    IEnumerator SpawnZombies(int currentWave) {
+        int numBerOfEntitiesToSpawn = currentWaveCount * 5 * Random.Range(1, 3);
+        Debug.Log(numBerOfEntitiesToSpawn);
+        for(int i = 0; i < numBerOfEntitiesToSpawn; i++) {
             int entityIndex = Random.Range(0, availableEntities.Length);
-            GameObject currentEntity = Instantiate(availableEntities[entityIndex], spawnPoints[i].transform.position, Quaternion.identity);
+            GameObject currentEntity = Instantiate(availableEntities[entityIndex], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
             currentEntity.GetComponent<ZombieAI>().setTarget(entityToFollow); // Assigning the player as the target for the zombie
             remainingEntities.Add(currentEntity); // Adding the spawned zombie to the remaining entities
+            
+            yield return new WaitForSeconds (0.5f);
         }
     }   
 }
