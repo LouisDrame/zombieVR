@@ -6,7 +6,7 @@ public class MobSpawner : MonoBehaviour
 {
     public GameObject[] spawnPoints;
     public GameObject[] availableEntities;
-    public GameObject entityToFollow;
+    public Transform entityToFollow;
 
     // Waves related stuff
 

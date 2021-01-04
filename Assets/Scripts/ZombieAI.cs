@@ -1,30 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject target;
-    public float speed = 10f;
-    Vector3 destination;
+    public Transform target;
+    private NavMeshAgent agent;
+
     void Start()
     {
-        
+        agent = this.GetComponent<NavMeshAgent>();
     }
 
+    
     // Update is called once per frame
-    void Update()
-    {
-        if(target) {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * speed);
-        }
-        else {
-            transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, Time.deltaTime * speed);
+    void FixedUpdate() {
+        if (target != null) {
+            agent.SetDestination(target.position);
         }
     }
 
-    public void setTarget(GameObject newTarget) {
+    public void setTarget(Transform newTarget) {
         target = newTarget;
     }
 }

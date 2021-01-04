@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ee1a0dba76f90b0489094a14e9b57f47, type: 2}
 --- !u!1001 &115394252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,7 +589,18 @@ PrefabInstance:
         type: 3}
       propertyPath: entityToFollow
       value: 
-      objectReference: {fileID: 287122807}
+      objectReference: {fileID: 287122809}
+    - target: {fileID: 8107186432421876024, guid: a3cd184f81839e048a63fe5a99ffb37f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 287122809}
+    - target: {fileID: 8107186432421876024, guid: a3cd184f81839e048a63fe5a99ffb37f,
+        type: 3}
+      propertyPath: availableEntities.Array.data[0]
+      value: 
+      objectReference: {fileID: 7061210357284860895, guid: 873400944b1ba314fbc669cb35ded4e7,
+        type: 3}
     - target: {fileID: 8107186432421876025, guid: a3cd184f81839e048a63fe5a99ffb37f,
         type: 3}
       propertyPath: m_Name
@@ -774,7 +785,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &692028768
 Transform:
