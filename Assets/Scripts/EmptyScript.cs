@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EmptyScript : MonoBehaviour
 {
+    Dictionary<string, int> entityKilled = new Dictionary<string, int>() {{"Enemy", 0}, {"Human", 0}};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,11 @@ public class EmptyScript : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Enemy"){
-            Destroy(other.gameObject);
+        GameObject colObject = other.gameObject;
+        
+        if(colObject.tag == "Enemy" || colObject.tag == "Human"){
+            Destroy(colObject);
+            entityKilled[colObject.tag]++;
         }
     }
 }
