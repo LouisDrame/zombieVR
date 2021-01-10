@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptyScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    Dictionary<string, int> entityKilled = new Dictionary<string, int>() {{"Enemy", 0}, {"Human", 0}};
+    Dictionary<string, int> entityTouched = new Dictionary<string, int>() {{"Enemy", 0}, {"Human", 0}};
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class EmptyScript : MonoBehaviour
         
         if(colObject.tag == "Enemy" || colObject.tag == "Human"){
             Destroy(colObject);
-            entityKilled[colObject.tag]++;
+            entityTouched[colObject.tag]++;
         }
     }
 }
