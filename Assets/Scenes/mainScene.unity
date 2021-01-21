@@ -8571,15 +8571,12 @@ MonoBehaviour:
   - {fileID: 456110676}
   - {fileID: 187207588}
   availableEntities:
-  - {fileID: 7061210357284860895, guid: 873400944b1ba314fbc669cb35ded4e7, type: 3}
-  - {fileID: 4950155543769381993, guid: fb04d66b0542967419fdb537fe5eda19, type: 3}
-  availableEntitiesBis:
-  - entity: {fileID: 7061210357284860895, guid: 873400944b1ba314fbc669cb35ded4e7,
-      type: 3}
-    probability: 0
   - entity: {fileID: 4950155543769381993, guid: fb04d66b0542967419fdb537fe5eda19,
       type: 3}
-    probability: 0
+    probability: 0.1
+  - entity: {fileID: 7061210357284860895, guid: 873400944b1ba314fbc669cb35ded4e7,
+      type: 3}
+    probability: 0.9
   entityToFollow: {fileID: 1837879465}
   numberOfWaves: 5
   currentWaveCount: 0
