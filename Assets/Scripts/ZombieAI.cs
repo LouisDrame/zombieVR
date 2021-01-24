@@ -14,12 +14,13 @@ public class ZombieAI : MonoBehaviour
         agent = this.GetComponent<NavMeshAgent>();
     }
 
-    
+
     // Update is called once per frame
     void FixedUpdate() {
         if (target != null) {
             agent.SetDestination(target.position);
         }
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Enemies/Zombies/footstep", GetComponent<Transform>().position);
     }
 
     public void setTarget(Transform newTarget) {

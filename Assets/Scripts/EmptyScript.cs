@@ -24,6 +24,13 @@ public class EmptyScript : MonoBehaviour
         if(colObject.tag == "Enemy" || colObject.tag == "Human"){
             Destroy(colObject);
             entityKilled[colObject.tag]++;
+            if(colObject.tag == "Enemy")
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Enemies/Zombies/Zombie Hurt", GetComponent<Transform>().position);
+            } else if (colObject.tag == "Human")
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Humans/Human ded", GetComponent<Transform>().position);
+            }
         }
     }
 }
