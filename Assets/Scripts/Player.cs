@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
     }
     
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
-        Debug.Log("Load callback");
         if(scene.name == "mainScene"){
             HealthBar.setHealthBarInfo(health, maxHealth);
         }
     }
+
     // Update is called once per frame
     void Update()
     {

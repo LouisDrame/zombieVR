@@ -10,14 +10,20 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        healthText = GetComponentsInChildren<Text>()[0];
-        healthBarImage = GetComponentsInChildren<Image>()[0];
-        healthBarImage.color = Color.red;
+        init();
+    }
+
+    private static void init() {
+        if (healthText == null && healthBarImage == null) {
+            healthText = GameObject.Find("HealthBar").GetComponentsInChildren<Text>()[0];
+            healthBarImage =  GameObject.Find("HealthBar").GetComponentsInChildren<Image>()[0];
+            healthBarImage.color = Color.red;
+        }
     }
 
     public static void setHealthBarInfo(int currentHealth, int maxHealth) {
+        init();
         healthBarImage.fillAmount =(float)currentHealth / maxHealth;
-        Debug.Log(maxHealth);
         healthText.text = currentHealth + " / " + maxHealth;
     }
 }
