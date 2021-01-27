@@ -4,43 +4,75 @@ using UnityEngine;
 
 public class MobSpawner : MonoBehaviour
 {
+    [System.Serializable]
+    public struct EntityWithProbability {
+        public GameObject entity;
+        public float probability;
+    }
+    
     public GameObject[] spawnPoints;
-    public GameObject[] availableEntities;
+    public List<EntityWithProbability> availableEntities;
     public Transform entityToFollow;
 
     // Waves related stuff
 
-    public int numberOfWaves = 5;
+    public int numberOfWaves = 1;
     public int currentWaveCount = 0;
+    public float timeBetweenWaves = 5f;
     public List<GameObject> remainingEntities;
 
     private ZombieAI ai;
 
     private bool hasEveryoneSpawned = false; // Not used now, will be used when enemies will not spawn at the same time
-
+    private float cumulProb = 0;
     void Start()
     {
         remainingEntities = new List<GameObject>();
+
+        availableEntities.Sort(delegate(EntityWithProbability x, EntityWithProbability y) {
+            if (x.probability == y.probability) return 0;
+            else if (x.probability > y.probability) return 1;
+            else if (x.probability < y.probability) return -1;
+
+            return 0;
+        });
+
+        foreach (EntityWithProbability entity in availableEntities) {
+            cumulProb += entity.probability;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (remainingEntities.Count == 0) { // WHen there's no more enemies to kill spawn another wave of zombies
+        remainingEntities.RemoveAll((GameObject entity) => entity == null);
+
+        if (remainingEntities.Count == 0) { // When there's no more enemies to kill spawn another wave of zombies
             currentWaveCount++;
             StartCoroutine(SpawnZombies(currentWaveCount));
         }
     }
 
     IEnumerator SpawnZombies(int currentWave) {
-        int numBerOfEntitiesToSpawn = currentWaveCount * 5 * Random.Range(1, 3);
-        Debug.Log(numBerOfEntitiesToSpawn);
+        int numBerOfEntitiesToSpawn = currentWaveCount * 50 * Random.Range(1, 3);
+
         for(int i = 0; i < numBerOfEntitiesToSpawn; i++) {
-            int entityIndex = Random.Range(0, availableEntities.Length);
-            GameObject currentEntity = Instantiate(availableEntities[entityIndex], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+            float randomProbability = Random.Range(0, cumulProb); // Random float
+
+            int index = 0;
+            int entityIndex = -1;
+            while (entityIndex == -1 && index < availableEntities.Count) {
+                if (randomProbability < availableEntities[index].probability) {
+                    entityIndex = index;
+                }
+
+                randomProbability -= availableEntities[index].probability;
+                index++;
+            }
+
+            GameObject currentEntity = Instantiate(availableEntities[entityIndex].entity, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
             currentEntity.GetComponent<ZombieAI>().setTarget(entityToFollow); // Assigning the player as the target for the zombie
             remainingEntities.Add(currentEntity); // Adding the spawned zombie to the remaining entities
-            
             yield return new WaitForSeconds (0.5f);
         }
     }   
