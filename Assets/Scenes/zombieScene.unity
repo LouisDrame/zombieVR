@@ -9914,7 +9914,7 @@ MonoBehaviour:
   - {fileID: 456110676}
   - {fileID: 187207588}
   availableEntities:
-  - entity: {fileID: 4493914613880827488, guid: 7655f61cf6a5a814e82200e86270a2e2,
+  - entity: {fileID: 4493914613880827488, guid: 6dc4cf4496348884d8ee27743ae38562,
       type: 3}
     probability: 0.25
   - entity: {fileID: 1998371697940912222, guid: d58be77cba3adf54cb14b15052b86514,

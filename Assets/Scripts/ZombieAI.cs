@@ -8,10 +8,12 @@ public class ZombieAI : MonoBehaviour
     // Start is called before the first frame update
     public Transform target;
     private NavMeshAgent agent;
+    public float speed = 0.5f;
 
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
+        agent.speed = speed;
     }
 
 
