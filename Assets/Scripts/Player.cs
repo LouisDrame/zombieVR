@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     }
 
     private void onDeath() {
-        // Debug.Log("Death");
+        Debug.Log("Death");
         UIManager.GetComponent<UIManager>().onDeath();
     }
 }

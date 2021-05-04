@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/SFX/Enemies/Zombies/Zombie scream
   guid: 53116bbcbbaec243bcc27947bdd9046d
   Banks:
-  - {fileID: 335127825354675380}
+  - {fileID: 5062890274556539062}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/SFX/Humans/Human ded
   guid: 2e4f7298b9ef274f8125ad1728d01036
   Banks:
-  - {fileID: 335127825354675380}
+  - {fileID: 5062890274556539062}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -46,6 +46,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 882
+--- !u!114 &-4007369618651340490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637557168587521193
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 928
+  Exists: 1
 --- !u!114 &-1253260502845676621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +101,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1253260502845676621}
-  - {fileID: 335127825354675380}
+  - {fileID: -4007369618651340490}
+  - {fileID: 5062890274556539062}
   EditorEvents:
   - {fileID: 3210062333626319414}
   - {fileID: -5428269500244711616}
@@ -89,10 +110,10 @@ MonoBehaviour:
   - {fileID: -8181938190924838792}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 335127825354675380}
+  - {fileID: 5062890274556539062}
   StringsBanks:
-  - {fileID: -1253260502845676621}
-  stringsBankWriteTime: 637470946452174534
+  - {fileID: -4007369618651340490}
+  stringsBankWriteTime: 637557168587521193
   cacheVersion: 6
 --- !u!114 &335127825354675380
 MonoBehaviour:
@@ -130,7 +151,7 @@ MonoBehaviour:
   Path: event:/SFX/Enemies/Zombies/Zombie Hurt
   guid: e6f73bf64fb64745b906ee9663561b0a
   Banks:
-  - {fileID: 335127825354675380}
+  - {fileID: 5062890274556539062}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -138,6 +159,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 882
+--- !u!114 &5062890274556539062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637557168587507470
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &7733317186520864084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +193,7 @@ MonoBehaviour:
   Path: event:/SFX/Enemies/Zombies/footstep
   guid: be344f78d5b92647b278d40c16d28792
   Banks:
-  - {fileID: 335127825354675380}
+  - {fileID: 5062890274556539062}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0

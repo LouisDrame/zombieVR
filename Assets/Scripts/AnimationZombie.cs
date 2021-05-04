@@ -14,7 +14,7 @@ public class AnimationZombie : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("walking", 0.1f);
+        // anim.SetFloat("walking", 0.1f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +23,7 @@ public class AnimationZombie : MonoBehaviour
 
         if (colObject.tag == "Player")
         {
-            anim.SetBool("hurt", true);
+            // anim.SetBool("hurt", true);
             //anim.SetBool("walking", true);
             //anim.Play("Z_FallingBack");
         }
