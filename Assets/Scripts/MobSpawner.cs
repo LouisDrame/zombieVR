@@ -69,7 +69,9 @@ public class MobSpawner : MonoBehaviour
                 randomProbability -= availableEntities[index].probability;
                 index++;
             }
-            GameObject currentEntity = Instantiate(availableEntities[entityIndex].entity, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+            Vector3 position = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+            Vector3 spawnPlace = new Vector3(position.x, 0, position.z);
+            GameObject currentEntity = Instantiate(availableEntities[entityIndex].entity, spawnPlace, Quaternion.identity);
             currentEntity.GetComponent<ZombieAI>().setTarget(entityToFollow); // Assigning the player as the target for the zombie
             remainingEntities.Add(currentEntity); // Adding the spawned zombie to the remaining entities
             yield return new WaitForSeconds (0.5f);
