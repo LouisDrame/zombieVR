@@ -2,10 +2,10 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.zombievr.exe",
+      "app_key": "application.generated.unity.test.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\Prog\\Git\\zombieVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\Programmation\\zombieVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "zombieVR [Testing]"
