@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     Dictionary<string, int> entityTouched = new Dictionary<string, int>() {{"Enemy", 0}, {"Human", 0}};
     public int health, healthLossOnHit;
     public GameObject UIManager;
+    public GameObject UI3DManager;
     [HideInInspector]
     public int maxHealth;
 
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
 
     private void onDeath() {
         Debug.Log("Death");
-        UIManager.GetComponent<UIManager>().onDeath();
+        // UIManager.GetComponent<UIManager>().onDeath();
+        UI3DManager.GetComponent<UI3DManager>().onDeath();
     }
 }

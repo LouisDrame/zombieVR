@@ -25,9 +25,14 @@ public class MobSpawner : MonoBehaviour
 
     private bool hasEveryoneSpawned = false; // Not used now, will be used when enemies will not spawn at the same time
     private float cumulProb = 0;
+
+    public GameObject UI3DManagerObj;
+    private UI3DManager UI3DManager;
+
     void Start()
     {
         remainingEntities = new List<GameObject>();
+        UI3DManager = UI3DManagerObj.GetComponent<UI3DManager>();
 
         availableEntities.Sort(delegate(EntityWithProbability x, EntityWithProbability y) {
             if (x.probability == y.probability) return 0;
@@ -45,11 +50,13 @@ public class MobSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        remainingEntities.RemoveAll((GameObject entity) => entity == null);
+        if (UI3DManager.playButton.gameRunning) {
+            remainingEntities.RemoveAll((GameObject entity) => entity == null);
 
-        if (remainingEntities.Count == 0) { // When there's no more enemies to kill spawn another wave of zombies
-            currentWaveCount++;
-            StartCoroutine(SpawnZombies(currentWaveCount));
+            if (remainingEntities.Count == 0) { // When there's no more enemies to kill spawn another wave of zombies
+                currentWaveCount++;
+                StartCoroutine(SpawnZombies(currentWaveCount));
+            }
         }
     }
 
