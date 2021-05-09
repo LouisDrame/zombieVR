@@ -414,7 +414,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 0.3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -516,6 +516,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5770795823427173291}
     m_Modifications:
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334605172383, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3989821334917436312, guid: f59a03fb2b952094f9a2fd4f84b874e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,12 +604,12 @@ PrefabInstance:
     - target: {fileID: 3989821334917436312, guid: f59a03fb2b952094f9a2fd4f84b874e7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 352.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3989821334917436312, guid: f59a03fb2b952094f9a2fd4f84b874e7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 214.65
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 3989821334917436312, guid: f59a03fb2b952094f9a2fd4f84b874e7,
         type: 3}
@@ -625,6 +655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989821334917436313, guid: f59a03fb2b952094f9a2fd4f84b874e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f59a03fb2b952094f9a2fd4f84b874e7, type: 3}

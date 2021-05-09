@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 81000013732730882}
   - component: {fileID: 114000013777684504}
   - component: {fileID: 1328114323}
-  - component: {fileID: 1328114322}
+  - component: {fileID: 7441681711562028825}
   - component: {fileID: 1328114321}
   m_Layer: 0
   m_Name: Camera
@@ -659,9 +659,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
---- !u!136 &1328114322
+--- !u!136 &7441681711562028825
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -689,6 +689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthLossOnHit: 5
+  healthBarObj: {fileID: 0}
+  godMode: 0
   UIManager: {fileID: 0}
   UI3DManager: {fileID: 3046844597534437486}
   maxHealth: 0

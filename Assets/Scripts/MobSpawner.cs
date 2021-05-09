@@ -51,7 +51,7 @@ public class MobSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (UI3DManager.playButton.gameRunning) {
+        if (UI3DManager.playButton.gameRunning && !UI3DManager.dead) {
             remainingEntities.RemoveAll((GameObject entity) => entity == null);
 
             if (remainingEntities.Count == 0 && !waveStarted) { // When there's no more enemies to kill spawn another wave of zombies

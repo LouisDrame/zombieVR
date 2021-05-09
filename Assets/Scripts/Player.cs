@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     Dictionary<string, int> entityTouched = new Dictionary<string, int>() {{"Enemy", 0}, {"Human", 0}};
     public int health, healthLossOnHit;
+    public GameObject healthBarObj;
+    public bool godMode;
     public GameObject UIManager;
     public GameObject UI3DManager;
     [HideInInspector]
@@ -18,10 +20,14 @@ public class Player : MonoBehaviour
         maxHealth = health;
         HealthBar.setHealthBarInfo(health, maxHealth);
         SceneManager.sceneLoaded += this.OnLoadCallback;
+
+        if (godMode) {
+            healthBarObj.SetActive(false);
+        }
     }
     
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
-        if(scene.name == "mainScene"){
+        if(scene.name == "mainScene" && !godMode){
             HealthBar.setHealthBarInfo(health, maxHealth);
         }
     }
@@ -42,7 +48,7 @@ public class Player : MonoBehaviour
             entityTouched[colObject.tag]++;
         }
 
-        if(colObject.tag == "Enemy" && health > 0) {
+        if(colObject.tag == "Enemy" && health > 0 && !godMode) {
             onHit();
         }
     }

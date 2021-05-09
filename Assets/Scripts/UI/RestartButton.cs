@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class RestartButton : MonoBehaviour
 {
     private void OnTriggerEnter(Collider colObject) {
-        SceneManager.LoadScene("v1FunctionalScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("zombieScene", LoadSceneMode.Single);
     }
 }
