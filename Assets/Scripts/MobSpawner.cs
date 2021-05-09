@@ -24,7 +24,7 @@ public class MobSpawner : MonoBehaviour
 
     private ZombieAI ai;
 
-    private bool hasEveryoneSpawned = false; // Not used now, will be used when enemies will not spawn at the same time
+    private bool waveStarted = false; // Not used now, will be used when enemies will not spawn at the same time
     private float cumulProb = 0;
 
     public GameObject UI3DManagerObj;
@@ -54,7 +54,7 @@ public class MobSpawner : MonoBehaviour
         if (UI3DManager.playButton.gameRunning) {
             remainingEntities.RemoveAll((GameObject entity) => entity == null);
 
-            if (remainingEntities.Count == 0) { // When there's no more enemies to kill spawn another wave of zombies
+            if (remainingEntities.Count == 0 && !waveStarted) { // When there's no more enemies to kill spawn another wave of zombies
                 currentWaveCount++;
                 Debug.Log(currentWaveCount);
                 StartCoroutine(SpawnZombies(currentWaveCount, currentWaveCount == 1));
@@ -63,6 +63,7 @@ public class MobSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnZombies(int currentWave, bool firstWave) {
+        waveStarted = true;
         if(!firstWave) {
             yield return new WaitForSeconds(timeBetweenWaves);
         }
@@ -88,5 +89,6 @@ public class MobSpawner : MonoBehaviour
             remainingEntities.Add(currentEntity); // Adding the spawned zombie to the remaining entities
             yield return new WaitForSeconds (0.5f);
         }
+        waveStarted = false;
     }  
 }
