@@ -56,12 +56,16 @@ public class MobSpawner : MonoBehaviour
 
             if (remainingEntities.Count == 0) { // When there's no more enemies to kill spawn another wave of zombies
                 currentWaveCount++;
-                StartCoroutine(SpawnZombies(currentWaveCount));
+                Debug.Log(currentWaveCount);
+                StartCoroutine(SpawnZombies(currentWaveCount, currentWaveCount == 1));
             }
         }
     }
 
-    IEnumerator SpawnZombies(int currentWave) {
+    IEnumerator SpawnZombies(int currentWave, bool firstWave) {
+        if(!firstWave) {
+            yield return new WaitForSeconds(timeBetweenWaves);
+        }
         int numBerOfEntitiesToSpawn = currentWaveCount * spawnFactor * Random.Range(1, 3);
 
         for(int i = 0; i < numBerOfEntitiesToSpawn; i++) {
@@ -84,5 +88,5 @@ public class MobSpawner : MonoBehaviour
             remainingEntities.Add(currentEntity); // Adding the spawned zombie to the remaining entities
             yield return new WaitForSeconds (0.5f);
         }
-    }   
+    }  
 }
