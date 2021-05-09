@@ -19,6 +19,7 @@ public class MobSpawner : MonoBehaviour
     public int numberOfWaves = 1;
     public int currentWaveCount = 0;
     public float timeBetweenWaves = 5f;
+    public int spawnFactor = 10;
     public List<GameObject> remainingEntities;
 
     private ZombieAI ai;
@@ -61,7 +62,7 @@ public class MobSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnZombies(int currentWave) {
-        int numBerOfEntitiesToSpawn = currentWaveCount * 50 * Random.Range(1, 3);
+        int numBerOfEntitiesToSpawn = currentWaveCount * spawnFactor * Random.Range(1, 3);
 
         for(int i = 0; i < numBerOfEntitiesToSpawn; i++) {
             float randomProbability = Random.Range(0, cumulProb); // Random float
